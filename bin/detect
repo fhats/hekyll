@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# this pack is valid for apps with _config.yml in the root
+if [ -f $1/_config.yml ]; then
+  echo "Jekyll"
+  exit 0
+else
+  exit 1
+fi
