@@ -15,11 +15,11 @@ gempath:
 EOF
 
 /usr/local/bin/gem install bundle --no-rdoc --no-ri | indent
-bundle install --deployment | indent
 
 # Run Jekyll
 echo "Running Jekyll" | indent
 export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
+$1/.gems/bin/bundle install --path $1/.gems | indent
 cd $1
 $1/.gems/bin/jekyll | indent
