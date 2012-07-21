@@ -14,7 +14,8 @@ gempath:
 - $1/.gems
 EOF
 
-/usr/local/bin/gem install bundle jekyll RedCloth thin rack-rewrite --no-rdoc --no-ri | indent
+/usr/local/bin/gem install bundle --no-rdoc --no-ri | indent
+bundle install --deployment | indent
 
 # Run Jekyll
 echo "Running Jekyll" | indent
