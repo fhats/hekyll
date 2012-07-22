@@ -7,6 +7,6 @@ config_vars:
     PATH: "bin:/usr/bin:/bin:.gems/bin"
     GEM_HOME: ".gems"
 default_process_types:
-    console: "bundle exec irb"
+    console: "GEM_HOME=./.gems PATH=./gems/bin:$PATH bundle exec irb"
     bash: "bash"
 EOF
