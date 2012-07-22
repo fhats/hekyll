@@ -20,7 +20,9 @@ EOF
 echo "Running Jekyll" | indent
 export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
+ls $1/vendor/bundle/bin
+export PATH=$1/vendor/bundle/bin
 cd $1
 bundle install --path vendor/bundle --binstubs bin/ --deployment | indent
-ls $1/.gems/bin
+ls $1/vendor/bundle/bin
 bundle exec jekyll | indent
