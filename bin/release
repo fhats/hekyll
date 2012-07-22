@@ -6,5 +6,5 @@ addons:
 config_vars:
     PATH: "bin:.gems/bin" 
 default_process_types:
-	whatshere: "ls -ahlr"
+	console: "bundle exec irb"
 EOF
