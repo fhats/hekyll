@@ -4,9 +4,7 @@ cat << EOF
 ---
 addons:
 config_vars:
-    PATH: "bin:/usr/bin:/bin:.gems/bin"
-    GEM_HOME: ".gems"
 default_process_types:
     console: "GEM_HOME=./.gems ./.gems/bin/bundle exec irb"
-    bash: "bash"
+    web: "GEM_HOME=./.gems ./.gems/bin/bundle exec thin start -p $PORT -e $RACK_ENV"
 EOF
