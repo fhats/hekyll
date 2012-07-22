@@ -26,5 +26,5 @@ export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
 cd $1
 bundle install --path vendor/bundle --binstubs bin/ --deployment | indent
-ls -ahlr bin
+ls -ahlr $GEM_HOME
 bundle exec jekyll | indent
