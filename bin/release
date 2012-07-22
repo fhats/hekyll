@@ -8,4 +8,5 @@ config_vars:
 default_process_types:
     console: "bundle exec irb"
     whatshere: "ls -ahlr"
+    tree: "tree"
 EOF
