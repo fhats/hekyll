@@ -10,20 +10,43 @@ export LANG=en_US.UTF-8
 
 echo "-----> Compiling Jekyll site"
 
-# Install Jekyll into hidden directory in app roote
-
+# Set up our gems environment
+# We gotta do this cause Heroku expects buildpacks
+# to manage all of their own stuff
 cat << EOF > ~/.gemrc
 gemhome: $1/.gems
 gempath:
 - $1/.gems
 EOF
 
+# Set up bundle so we can pull in all the dependencies the app has
+echo "Installing bundle..." | indent
 /usr/local/bin/gem install bundle --no-rdoc --no-ri | indent
 
-# Run Jekyll
-echo "Running Jekyll" | indent
 export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
+
+BUNDLE_CACHE="$2/vendor/bundle"
+
+# If we have a cached version of our dependencies, use that to speed up
+# deployment
+if [ -d "$BUNDLE_CACHE" ]; then
+	echo "Cached dependencies found" | indent
+	mkdir -p $1/vendor
+	cp -a $BUNDLE_CACHE $1/vendor
+fi
+
 cd $1
+
+# Install the dependencies (bundle will figure out what it needs to do)
+echo "Installing dependencies..." | indent
 bundle install --path vendor/bundle --binstubs bin/ --deployment | indent
+
+# Cache the built dependencies
+echo "Caching dependencies..." | indent
+mkdir -p $BUNDLE_CACHE
+cp -a vendor/bundle/ $BUNDLE_CACHE/
+
+# Finally! Build the jekyll site
+echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
