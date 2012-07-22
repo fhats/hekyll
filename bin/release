@@ -5,6 +5,6 @@ cat << EOF
 addons:
 config_vars:
 default_process_types:
-    console: "GEM_HOME=./.gems ./.gems/bin/bundle exec irb"
-    web: "GEM_HOME=./.gems ./.gems/bin/bundle exec thin start -p $PORT -e $RACK_ENV"
+    console: "bundle exec irb"
+    bash: "bash"
 EOF
