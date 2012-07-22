@@ -7,6 +7,5 @@ config_vars:
     PATH: "/app/vendor/bundle/ruby/1.9.1/bin:bin:vendor/bundle/ruby/1.9.1/bin:/usr/local/bin:/usr/bin:/bin"
 default_process_types:
     console: "bundle exec irb"
-    whatshere: "ls -ahlR"
-    tree: "tree"
+    bash: "bash"
 EOF
