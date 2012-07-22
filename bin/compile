@@ -4,6 +4,10 @@ indent() {
   sed -u 's/^/       /'
 }
 
+# Ruby 1.9 fix
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 echo "-----> Compiling Jekyll site"
 
 # Install Jekyll into hidden directory in app roote
@@ -22,6 +26,5 @@ export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
 cd $1
 bundle install --path vendor/bundle --binstubs bin/ --deployment | indent
-ls -ahlr $1/vendor/bundle
 export PATH=$1/vendor/bundle/bin:$PATH
 bundle exec jekyll | indent
