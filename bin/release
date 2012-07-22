@@ -7,4 +7,6 @@ config_vars:
     PATH: "bin:.gems/bin" 
 default_process_types:
     console: "bundle exec irb"
+	tree: "tree"
+	ls: "ls -ahlr"
 EOF
