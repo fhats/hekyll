@@ -47,7 +47,7 @@ bundle install --path vendor/bundle --binstubs bin/ --deployment | indent
 # Cache the built dependencies
 echo "Caching dependencies..." | indent
 mkdir -p $BUNDLE_CACHE
-cp -a vendor/bundle/* $BUNDLE_CACHE/
+cp -a vendor/bundle $BUNDLE_CACHE
 ls -al $BUNDLE_CACHE
 
 # Finally! Build the jekyll site
