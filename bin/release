@@ -6,4 +6,5 @@ addons:
 config_vars:
     PATH: "bin:/usr/bin:/bin:.gems/bin"
 default_process_types:
+    console: "bundle exec irb"
 EOF
