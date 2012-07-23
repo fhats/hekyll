@@ -134,10 +134,12 @@ if invalid_files.length > 0
 
 	if not options[:dry_run]
 		invalidation_success = invalidate_files(invalid_files, options)
+	else
+		invalidation_success = true
 	end
 
 	if invalidation_success or options[:dry_run]
-		puts "Successfully invalidated!"
+		puts "Successfully invalidated #{invalid_files.length} files"
 
 		invalid_files.each do|f|
 			cachestash_f = File.join(options[:cache_dir], f)
