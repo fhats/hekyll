@@ -51,7 +51,7 @@ cp -a vendor/bundle $2/vendor/
 echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
 
-DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR="$( cd "$( dirname "$0" )" && pwd )"
 echo "$DIR"
 
 cd -
