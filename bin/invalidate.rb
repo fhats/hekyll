@@ -43,22 +43,22 @@ optparse = OptionParser.new do|opts|
 	opts.banner = "Usage: invalidate.rb [options]"
 
 	options[:aws_key] = ENV["AWS_KEY"]
-	opts.on('-k', '--aws-key', "AWS key to use") do|key|
+	opts.on('-k', '--aws-key [KEY]', "AWS key to use") do|key|
 		options[:aws_key] = key
 	end
 
 	options[:aws_secret] = ENV["AWS_SECRET"]
-	opts.on('-s', '--aws-secret', 'AWS secret to use') do|secret|
+	opts.on('-s', '--aws-secret [SECRET]', 'AWS secret to use') do|secret|
 		options[:aws_secret] = secret
 	end
 
 	options[:cache_dir] = ".cachestash"
-	opts.on('-o', '--cache-dir', "Dir to use to cache hashes") do|cachedir|
+	opts.on('-o', '--cache-dir [DIR]', "Dir to use to cache hashes") do|cachedir|
 		options[:cache_dir] = cachedir
 	end
 
 	options[:cloudfront_dist] = ENV["CLOUDFRONT_DISTRIBUTION"]
-	opts.on('-d', '--cf-dist', "Cloudfront distribution to invalidate from") do|cf_dist|
+	opts.on('-d', '--cf-dist [DIST]', "Cloudfront distribution to invalidate from") do|cf_dist|
 		options[:cloudfront_dist] = cf_dist
 	end
 
@@ -73,7 +73,7 @@ optparse = OptionParser.new do|opts|
 	end
 
 	options[:config_file] = "_config.yml"
-	opts.on('-c', '--config FILE', "Config file") do|f|
+	opts.on('c', '--config [FILE]', "Config file") do|f|
 		options[:config_file] = f
 	end
 
