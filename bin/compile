@@ -52,11 +52,8 @@ echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
 
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-echo "$DIR"
 
-cd -
-ls -ahl $DIR
-cp invalidate.rb $1/invalidate.rb
+cp $DIR/invalidate.rb $1/invalidate.rb
 cd $1/_site
 bundle exec ruby $1/invalidate.rb -c ../_config.yml -o $2/.cachestash
 
