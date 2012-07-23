@@ -73,7 +73,7 @@ optparse = OptionParser.new do|opts|
 	end
 
 	options[:config_file] = "_config.yml"
-	opts.on('c', '--config FILE', "Config file") do|f|
+	opts.on('-c', '--config FILE', "Config file") do|f|
 		options[:config_file] = f
 	end
 
