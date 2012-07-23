@@ -53,6 +53,7 @@ bundle exec jekyll | indent
 
 if [ -n "$AWS_KEY" ] && [ -n "$AWS_SECRET" ] && [ -n "$CLOUDFRONT_DISTRIBUTION" ]; then
 	cd -
+	ls -ahlR
 	cp invalidate.rb $1/invalidate.rb		
 fi
 
