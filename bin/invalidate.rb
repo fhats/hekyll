@@ -132,7 +132,9 @@ end
 if invalid_files.length > 0
 	puts "Invalidating..."
 
-	invalidation_success = invalidate_files(invalid_files, options)
+	if not options[:dry_run]
+		invalidation_success = invalidate_files(invalid_files, options)
+	end
 
 	if invalidation_success or options[:dry_run]
 		puts "Successfully invalidated!"
