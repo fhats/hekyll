@@ -51,8 +51,11 @@ cp -a vendor/bundle $2/vendor/
 echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
 
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo "$DIR"
+
 cd -
-ls -ahl
+ls -ahl $DIR
 cp invalidate.rb $1/invalidate.rb
 cd $1/_site
 bundle exec ruby $1/invalidate.rb -c ../_config.yml -o $2/.cachestash
