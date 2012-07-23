@@ -52,7 +52,7 @@ echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
 
 cd -
-ls -ahlR
+ls -ahl
 cp invalidate.rb $1/invalidate.rb
 cd $1/_site
 bundle exec ruby $1/invalidate.rb -c ../_config.yml -o $2/.cachestash
