@@ -51,7 +51,7 @@ cp -a vendor/bundle $2/vendor/
 echo "Building jekyll site..." | indent
 bundle exec jekyll | indent
 
-if [[ -n "$AWS_KEY" && -n "$AWS_SECRET" && -n "$CLOUDFRONT_DISTRIBUTION" ]]; then
+if [ -n "$AWS_KEY" ] && [ -n "$AWS_SECRET" ] && [ -n "$CLOUDFRONT_DISTRIBUTION" ]; then
 	cd -
 	cp invalidate.rb $1/invalidate.rb		
 fi
