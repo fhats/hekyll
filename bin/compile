@@ -55,5 +55,5 @@ DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 cp $DIR/invalidate.rb $1/invalidate.rb
 cd $1/_site
-bundle exec ruby $1/invalidate.rb -c ../_config.yml -o $2/.cachestash
+bundle exec ruby $1/invalidate.rb -c ../_config.yml -o $2/.cachestash "$INVALIDATION_OPTS"
 

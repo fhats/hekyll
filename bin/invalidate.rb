@@ -63,7 +63,7 @@ optparse = OptionParser.new do|opts|
 	end
 
 	options[:dry_run] = false
-	opts.on('-n', '--dry-run', "Don't actually invalidate") do
+	opts.on('-n', '--dry-run', "Don't actually invalidate, just update caches") do
 		options[:dry_run] = true
 	end
 
@@ -134,7 +134,7 @@ if invalid_files.length > 0
 
 	invalidation_success = invalidate_files(invalid_files, options)
 
-	if invalidation_success
+	if invalidation_success or options[:dry_run]
 		puts "Successfully invalidated!"
 
 		invalid_files.each do|f|
