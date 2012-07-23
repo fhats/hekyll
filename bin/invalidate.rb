@@ -141,6 +141,7 @@ if invalid_files.length > 0
 			cachestash_f = File.join(options[:cache_dir], f)
 			current_hash = Digest::MD5.hexdigest(File.read(f))
 
+			FileUtils.mkdir_p(File.dirname(cachestash_f))
 			File.open(cachestash_f, 'w+') do |of|
 				of.write(current_hash)
 			end
