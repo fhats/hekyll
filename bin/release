@@ -9,5 +9,5 @@ config_vars:
 default_process_types:
     console: "bundle exec irb"
     bash: "bash"
-    invalidate: "cd _site ; bundle exec ruby ../invalidate.rb -f -c ../_config.yml"
+    invalidate: "cd _site ; ../.gems/bin/bundle exec ruby ../invalidate.rb -f -c ../_config.yml"
 EOF
